@@ -1,0 +1,39 @@
+{
+  "evals": [
+    {
+      "name": "branded-word-refine",
+      "description": "Refine a weak company board Word document using the company's brand tokens",
+      "input": "Polish this weak company board Word doc; use the company's brand colors (e.g. red/gray), fix hierarchy and tables",
+      "expected_behavior": "DOCX with 12pt body, company tokens applied (no stray blue in headings/tables/links/diagrams), chapter page breaks, clean restrained tables, stable updated TOC; PDF exports from the DOCX and pdffonts shows embedded Japanese fonts",
+      "tags": ["docx", "refine", "tokens", "ja"]
+    },
+    {
+      "name": "cn-jp-split",
+      "description": "Produce separate Japanese and Chinese versions of one board material",
+      "input": "Produce separate Japanese and Chinese versions of this board material",
+      "expected_behavior": "Two files; no Japanese residue in the Chinese output and no Chinese residue in the Japanese output (proper nouns excepted); parallel section/table/figure numbering; language-specific fonts; each language proofread independently",
+      "tags": ["bilingual", "split", "docx"]
+    },
+    {
+      "name": "cfo-proposal-16x9",
+      "description": "Build a 16:9 CFO proposal deck from an outline",
+      "input": "Build a 16:9 CFO proposal deck from this outline",
+      "expected_behavior": "1920x1080 HTML, html font-size 20px (1rem=20px), 6px brand accent bar, vertically filled (non-sparse) slides, company/topic visible in the first viewport; PDF page size is 16:9, all slides present, browser render matches PDF",
+      "tags": ["deck", "html", "pdf", "cfo"]
+    },
+    {
+      "name": "fund-flow-diagram",
+      "description": "Add a clean funds-flow diagram to a formal Word document page",
+      "input": "Add a funds-flow diagram to page 4",
+      "expected_behavior": "Clean left-to-right or top-to-bottom SVG/PNG with actor lanes, numbered steps, and a short note table; arrows land exactly on node edges; fewer than 9 nodes; only 1-2 brand-color focal nodes; inserted as a fixed image (no broken Word shape arrows); page has no overlapping objects",
+      "tags": ["diagram", "docx"]
+    },
+    {
+      "name": "numerical-fidelity-lock",
+      "description": "Preserve figures and language exactly through the render chain",
+      "input": "Rebuild this document that mixes yen figures and fiscal periods, with some data missing",
+      "expected_behavior": "All figures, units, currency symbols, and fiscal periods match the source exactly with no rounding or invention; missing data marked [DATA_GAP]; unverified legal/tax conclusions marked draft/assumption; output language consistent end to end (language lock)",
+      "tags": ["anchoring", "finance", "qa"]
+    }
+  ]
+}
